@@ -20,6 +20,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerBedEnterEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
@@ -90,6 +91,15 @@ public final class Main extends JavaPlugin implements Listener {
           .forEach(item -> item.setAmount(64));
         player.getInventory().setContents(itemStacks);
 
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent e) throws IOException {
+        Player player = e.getPlayer();
+
+        Path path = Path.of("join-message.txt");
+        Files.writeString(path, "welcome!");
+        player.sendMessage(Files.readString(path));
     }
 
     }
