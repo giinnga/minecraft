@@ -1,14 +1,10 @@
 package plugin.sample;
 
 import java.io.IOException;
-import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
@@ -33,7 +29,7 @@ public final class Main extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         Bukkit.getPluginManager().registerEvents(this, this);
-        getCommand("levelup").setExecutor(new LevelUpCommand());
+        getCommand("setLevel").setExecutor(new SetLevelCommand());
 
 
 
@@ -76,9 +72,9 @@ public final class Main extends JavaPlugin implements Listener {
                 // 追加した情報で再設定する。
                 firework.setFireworkMeta(fireworkMeta);
             }
-              //  Path path = Path.of("firework.txt");
-              //  Files.writeString(path, "tamaya");
-              //  player.sendMessage(Files.readString(path));
+              // Path path = Path.of("firework.txt");
+              // Files.writeString(path, "tamaya");
+              // player.sendMessage(Files.readString(path));
         }
         count++;
     }
