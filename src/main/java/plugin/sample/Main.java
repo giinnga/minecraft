@@ -30,7 +30,7 @@ public final class Main extends JavaPlugin implements Listener {
     public void onEnable() {
         Bukkit.getPluginManager().registerEvents(this, this);
         getCommand("setLevel").setExecutor(new SetLevelCommand());
-        getCommand("allSetCommand").setExecutor(new AllSetLevelCommand());
+        getCommand("allSetLevel").setExecutor(new AllSetLevelCommand());
 
 
         Exception exp = new Exception();
