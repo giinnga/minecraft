@@ -28,14 +28,17 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+
         Bukkit.getPluginManager().registerEvents(this, this);
-        getCommand("setLevel").setExecutor(new SetLevelCommand());
+        getCommand("setLevel").setExecutor(new SetLevelCommand(this));
         getCommand("allSetLevel").setExecutor(new AllSetLevelCommand());
 
 
         Exception exp = new Exception();
         RuntimeException exp2 = new RuntimeException();
     }
+
 
     /**
      * プレイヤーがスニークを開始/終了する際に起動されるイベントハンドラ。
