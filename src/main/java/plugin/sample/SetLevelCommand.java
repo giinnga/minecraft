@@ -10,8 +10,6 @@ public class SetLevelCommand implements CommandExecutor {
 
   private Main main;
 
-  public SetLevelCommand() {
-  }
 
   public SetLevelCommand(Main main) {
     this.main = main;
