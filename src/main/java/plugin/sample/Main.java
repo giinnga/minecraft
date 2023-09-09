@@ -75,11 +75,12 @@ public final class Main extends JavaPlugin implements Listener {
                 // 追加した情報で再設定する。
                 firework.setFireworkMeta(fireworkMeta);
             }
-              // Path path = Path.of("firework.txt");
-              // Files.writeString(path, "tamaya");
-              // player.sendMessage(Files.readString(path));
+               Path path = Path.of("firework.txt");
+               Files.writeString(path, "tamaya");
+               player.sendMessage(Files.readString(path));
         }
         count++;
+        System.out.println("今のカウント値" + count);
     }
 
     @EventHandler
