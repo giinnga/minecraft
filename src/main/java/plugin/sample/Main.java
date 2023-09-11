@@ -10,11 +10,16 @@ import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.FireworkEffect.Type;
+import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.entity.Chicken;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerAnimationEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
@@ -37,6 +42,15 @@ public final class Main extends JavaPlugin implements Listener {
 
         Exception exp = new Exception();
         RuntimeException exp2 = new RuntimeException();
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent e) {
+       Player player = e.getPlayer();
+       World world = player.getWorld();
+       Location playerLocation = player.getLocation();
+
+       world.spawn(new Location(world, playerLocation.getX() +3, playerLocation.getY(), playerLocation.getZ()), Chicken.class);
     }
 
 
@@ -80,7 +94,7 @@ public final class Main extends JavaPlugin implements Listener {
                player.sendMessage(Files.readString(path));
         }
         count++;
-        System.out.println("今のカウント値" + count);
+        //System.out.println("今のカウント値" + count);
     }
 
     @EventHandler
@@ -94,7 +108,7 @@ public final class Main extends JavaPlugin implements Listener {
 
     }
 
-    @EventHandler
+/** @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) throws IOException {
         Player player = e.getPlayer();
 
@@ -102,6 +116,7 @@ public final class Main extends JavaPlugin implements Listener {
         Files.writeString(path, "welcome!");
         player.sendMessage(Files.readString(path));
     }
+ */
 
     }
 
