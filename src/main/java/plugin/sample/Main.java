@@ -11,6 +11,7 @@ import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.FireworkEffect.Type;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Chicken;
 import org.bukkit.entity.Entity;
@@ -44,13 +45,26 @@ public final class Main extends JavaPlugin implements Listener {
         RuntimeException exp2 = new RuntimeException();
     }
 
-    @EventHandler
+    /** @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
        Player player = e.getPlayer();
        World world = player.getWorld();
        Location playerLocation = player.getLocation();
 
        world.spawn(new Location(world, playerLocation.getX() +3, playerLocation.getY(), playerLocation.getZ()), Chicken.class);
+    } */
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent e) {
+        Player player = e.getPlayer();
+        World world = player.getWorld();
+        Location playerLocation = player.getLocation();
+
+        world.getBlockAt(new Location(world,
+            playerLocation.getX() +3,
+            playerLocation.getY(),
+            playerLocation.getZ())).setType(Material.DARK_OAK_WOOD);
+
     }
 
 
