@@ -14,6 +14,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Chicken;
+import org.bukkit.entity.Dolphin;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
@@ -45,15 +46,15 @@ public final class Main extends JavaPlugin implements Listener {
         RuntimeException exp2 = new RuntimeException();
     }
 
-    /** @EventHandler
+    @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
        Player player = e.getPlayer();
        World world = player.getWorld();
        Location playerLocation = player.getLocation();
 
-       world.spawn(new Location(world, playerLocation.getX() +3, playerLocation.getY(), playerLocation.getZ()), Chicken.class);
-    } */
-
+       world.spawn(new Location(world, playerLocation.getX() +3, playerLocation.getY(), playerLocation.getZ()), Dolphin.class);
+    }
+    /**
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
@@ -65,7 +66,7 @@ public final class Main extends JavaPlugin implements Listener {
             playerLocation.getY(),
             playerLocation.getZ())).setType(Material.DARK_OAK_WOOD);
 
-    }
+    }*/
 
 
     /**
