@@ -46,7 +46,8 @@ public final class Main extends JavaPlugin implements Listener {
         RuntimeException exp2 = new RuntimeException();
     }
 
-    @EventHandler
+
+    /**@EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
        Player player = e.getPlayer();
        World world = player.getWorld();
@@ -54,7 +55,7 @@ public final class Main extends JavaPlugin implements Listener {
 
        world.spawn(new Location(world, playerLocation.getX() +3, playerLocation.getY(), playerLocation.getZ()), Dolphin.class);
     }
-    /**
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
